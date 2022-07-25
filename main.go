@@ -22,8 +22,12 @@ func main() {
 	for i := 0; i < row; i++ {
 		grid[i] = make([]int, col)
 		for j := 0; j < col; j++ {
-			if str1[j] == str2[i] && i == j {
-				grid[i][j] = grid[i-1][j-1] + 1
+			if str1[j] == str2[i] {
+				if i == 0 || j == 0 {
+					grid[i][j] = grid[i][j] + 1
+				} else {
+					grid[i][j] = grid[i-1][j-1] + 1
+				}
 			} else {
 				grid[i][j] = 0
 			}
